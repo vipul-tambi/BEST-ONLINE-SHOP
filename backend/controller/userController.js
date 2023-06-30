@@ -204,10 +204,11 @@ const writeReview = async (req, res, next) => {
       product.reviewsNumber = 1;
     } else {
       product.reviewsNumber = product.reviews.length;
-      product.rating =
+      let ratingCalc =
         prc
           .map((item) => Number(item.rating))
           .reduce((sum, item) => sum + item, 0) / product.reviews.length;
+      product.rating = Math.round(ratingCalc);
     }
     await product.save();
     await session.commitTransaction();
@@ -238,7 +239,7 @@ const updateUser = async (req, res, next) => {
     user.name = req.body.name || user.name;
     user.lastName = req.body.lastName || user.lastName;
     user.email = req.body.email || user.email;
-    user.isAdmin = req.body.isAdmin || user.isAdmin;
+    user.isAdmin = req.body.isAdmin || false;
 
     await user.save();
     res.send("user updated");

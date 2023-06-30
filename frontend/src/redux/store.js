@@ -9,11 +9,13 @@ import thunk from "redux-thunk";
 import { cartReducer } from "./reducers/cartReducers";
 import { userRegisterLoginReducer } from "./reducers/userReducers";
 import { getCategoriesReducer } from "./reducers/categoryReducers";
+import { adminChatReducer } from "./reducers/adminCharReducers";
 
 const reducer = combineReducers({
   cart: cartReducer,
   userRegisterLogin: userRegisterLoginReducer,
   getCategories: getCategoriesReducer,
+  adminChat: adminChatReducer,
 });
 
 const cartItemsInLocalStorage = localStorage.getItem("cart")

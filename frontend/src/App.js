@@ -40,7 +40,35 @@ function App() {
       <Routes>
         <Route element={<RoutesWithUserChatComponent />}>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/product-list" element={<ProductListPage />} />
+          <Route path="/product-list" element={<ProductListPage />} />
+          <Route
+            path="/product-list/:pageNumParam"
+            element={<ProductListPage />}
+          />
+          <Route
+            path="/product-list/category/:categoryName"
+            element={<ProductListPage />}
+          />
+          <Route
+            path="/product-list/category/:categoryName/:pageNumParam"
+            element={<ProductListPage />}
+          />
+          <Route
+            path="/product-list/search/:searchQuery"
+            element={<ProductListPage />}
+          />
+          <Route
+            path="/product-list/search/:searchQuery/:pageNumParam"
+            element={<ProductListPage />}
+          />
+          <Route
+            path="/product-list/category/:categoryName/search/:searchQuery"
+            element={<ProductListPage />}
+          />
+          <Route
+            path="/product-list/category/:categoryName/search/:searchQuery/:pageNumParam"
+            element={<ProductListPage />}
+          />
           <Route
             exact
             path="/product-details/:id"
@@ -74,7 +102,7 @@ function App() {
           <Route exact path="/admin/users" element={<AdminUsersPage />} />
           <Route
             exact
-            path="/admin/edit-user"
+            path="/admin/edit-user/:id"
             element={<AdminEditUserPage />}
           />
           <Route exact path="/admin/products" element={<AdminProductsPage />} />
